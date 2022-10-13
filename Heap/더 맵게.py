@@ -28,7 +28,33 @@ Leo가 가진 음식의 스코빌 지수를 담은 배열 scoville과 원하는 
 
 모든 음식의 스코빌 지수가 7 이상이 되었고 이때 섞은 횟수는 2회입니다.
 '''
+import heapq as hq
 
 def solution(scoville, K):
-    answer = 0
-    return answer
+    s = scoville
+    k = K
+    count = 0
+    bp = len(scoville)
+
+    #리스트 힙으로 변환
+    hq.heapify(s)
+
+    while s[0] < k :
+        count += 1
+        s0 = s.pop(0)
+        s1 = s.pop(0)
+        hq.heappush(s, s0 + s1*2) #O(n)
+
+        bp -= 1
+
+        print("s count bp",s,count,bp)
+        if bp < 2 and s[0] < k:
+            return -1
+
+    return count
+
+
+print(solution([1, 2, 3, 9, 10, 12], 7))
+print(solution([1, 2, 3, 9, 10, 12], 110))
+
+

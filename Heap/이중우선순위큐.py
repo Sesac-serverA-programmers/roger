@@ -36,6 +36,36 @@ operations	return
 이중 우선순위 큐에 -45, 45, 333이 남아있으므로, [333, -45]를 반환합니다.
 '''
 
+import heapq as hq
+
+
 def solution(operations):
     answer = []
+    temp = []
+
+    for o in operations:
+        s,i = o.split()
+        i = int(i)
+
+        if s == "I" :
+            hq.heappush(temp,i) #O(log(n))
+            print(temp)
+
+        elif s == "D" :
+            if len(temp) == 0:
+                pass
+            else:
+                if i == 1 :
+                    temp.pop(-1)
+                elif i == -1 :
+                    temp.pop(0)
+
+    if len(temp) == 0:
+        return [0, 0]
+    else :
+        answer.append(temp[-1])
+        answer.append(temp[0])
+
     return answer
+
+print(solution(["I 1", "I 1", "D -1", "D 1", "D -1", "I 123", "D 1", "D 1", "I 1", "I -10"]))
