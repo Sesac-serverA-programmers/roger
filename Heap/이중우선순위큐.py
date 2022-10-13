@@ -49,7 +49,7 @@ def solution(operations):
 
         if s == "I" :
             hq.heappush(temp,i) #O(log(n))
-            print(temp)
+            # print(temp)
 
         elif s == "D" :
             if len(temp) == 0:
@@ -63,9 +63,15 @@ def solution(operations):
     if len(temp) == 0:
         return [0, 0]
     else :
-        answer.append(temp[-1])
+        #최대 heap
+        reverse_sign = lambda x: x * -1
+        max_heap = list(map(reverse_sign, temp))
+        hq.heapify(max_heap)
+        max_heap = list(map(reverse_sign, max_heap))
+
+        answer.append(max_heap[0])
         answer.append(temp[0])
 
     return answer
 
-print(solution(["I 1", "I 1", "D -1", "D 1", "D -1", "I 123", "D 1", "D 1", "I 1", "I -10"]))
+print(solution(	["I 4", "I -1", "I 6", "I 3"]))
