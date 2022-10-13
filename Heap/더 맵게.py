@@ -41,8 +41,8 @@ def solution(scoville, K):
 
     while s[0] < k :
         count += 1
-        s0 = s.pop(0)
-        s1 = s.pop(0)
+        s0 = hq.heappop(s) #O(log(n))
+        s1 = hq.heappop(s) #O(log(n))
         hq.heappush(s, s0 + s1*2) #O(n)
 
         bp -= 1
