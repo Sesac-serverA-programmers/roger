@@ -37,17 +37,18 @@ def solution(scoville, K):
     bp = len(scoville)
 
     #리스트 힙으로 변환
-    hq.heapify(s)
+    hq.heapify(s) #O(n)
 
     while s[0] < k :
         count += 1
         s0 = hq.heappop(s) #O(log(n))
-        s1 = hq.heappop(s) #O(log(n))
-        hq.heappush(s, s0 + s1*2) #O(n)
+        s1 = hq.heappop(s)  # O(log(n))
+        print("s0 s1", s0,s1)
+        hq.heappush(s, s0 + s1*2) #O(log(n))
 
         bp -= 1
 
-        print("s count bp",s,count,bp)
+        print("s bp",s,count,bp)
         if bp < 2 and s[0] < k:
             return -1
 

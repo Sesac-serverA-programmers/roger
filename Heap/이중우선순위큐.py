@@ -38,40 +38,48 @@ operations	return
 
 import heapq as hq
 
+def revers_heap(heap):
+    reverse_sign = lambda x: x * -1
+    temp = list(map(reverse_sign, heap))
+    hq.heapify(temp)
+    new_heap = list(map(reverse_sign, temp))
+
+    return new_heap
 
 def solution(operations):
     answer = []
     temp = []
+    count = 0
 
-    for o in operations:
+
+    for o in operations :
         s,i = o.split()
         i = int(i)
 
         if s == "I" :
-            hq.heappush(temp,i) #O(log(n))
+            hq.heappush(temp, i) #O(log(n))
+            count += 1
             # print(temp)
 
         elif s == "D" :
-            if len(temp) == 0:
+            if count < 1 :
                 pass
-            else:
+            else :
+                count -= 1
                 if i == 1 :
-                    temp.pop(-1)
+                    temp.remove(hq.heappop(revers_heap(temp))) #최대 힙으로 변환 후 heapop -> 해당 값 temp에서 제거
+
                 elif i == -1 :
-                    temp.pop(0)
+                    hq.heappop(temp)
 
-    if len(temp) == 0:
+    if count == 0 :
         return [0, 0]
-    else :
-        #최대 heap
-        reverse_sign = lambda x: x * -1
-        max_heap = list(map(reverse_sign, temp))
-        hq.heapify(max_heap)
-        max_heap = list(map(reverse_sign, max_heap))
 
-        answer.append(max_heap[0])
-        answer.append(temp[0])
+    else :
+        answer.append(revers_heap(temp)[0]) #최대값
+        answer.append(temp[0]) #최소값
 
     return answer
 
 print(solution(	["I 4", "I -1", "I 6", "I 3"]))
+print(solution(	["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]))
