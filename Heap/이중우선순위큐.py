@@ -83,3 +83,10 @@ def solution(operations):
 
 print(solution(	["I 4", "I -1", "I 6", "I 3"]))
 print(solution(	["I 16", "I -5643", "D -1", "D 1", "D 1", "I 123", "D -1"]))
+
+
+'''
+참조 : 
+(heap) https://www.daleseo.com/python-heapq/
+(파이썬 시간복잡도) https://wayhome25.github.io/python/2017/06/14/time-complexity/
+'''
