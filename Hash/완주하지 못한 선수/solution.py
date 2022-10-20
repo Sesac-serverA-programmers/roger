@@ -1,16 +1,25 @@
+import copy
+
+
 def solution(participant, completion):
-    ii = len(participant)
-    jj = len(completion)
-    print(ii,jj)
-    for i in range(ii-1):
-        for j in range(jj-1):
-            print(i,participant[i]," : ", j,completion[j])
-            if (participant[i] == completion[j]):
-                a = participant[i]
-                print("remove",a)
-                participant.remove(a)
-                print("participant :",participant)
-    answer = participant
+
+    temp_p = copy.deepcopy(participant)
+    temp_c = copy.deepcopy(completion)
+
+    for i in participant:
+        for j in completion:
+            if (i == j):
+                if (participant.count(i) - completion.count(j) > 0):
+                    completion.remove(j)
+                    temp_p.remove(i)
+                    temp_c.remove(j)
+
+                else:
+                    temp_p.remove(i)
+                    temp_c.remove(j)
+
+
+    answer = temp_p[0]
     return answer
 
 
