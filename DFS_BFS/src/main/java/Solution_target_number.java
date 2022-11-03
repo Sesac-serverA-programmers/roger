@@ -1,4 +1,4 @@
-class Solution {
+class Solution_target_number {
 
     int answer = 0;
 
@@ -22,8 +22,8 @@ class Solution {
         int[] numb1 = {1,1,1,1,1};
         int[] numb2 = {4,1,2,1};
 
-        int solution1 = new Solution().solution(numb1, 3);
-        int solution2 = new Solution().solution(numb2, 4);
+        int solution1 = new Solution_target_number().solution(numb1, 3);
+        int solution2 = new Solution_target_number().solution(numb2, 4);
         System.out.println(solution1);
         System.out.println(solution2);
     }
