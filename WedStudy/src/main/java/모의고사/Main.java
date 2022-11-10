@@ -2,7 +2,6 @@ package 모의고사;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.util.Collections.max;
 
 public class Main {
@@ -16,11 +15,12 @@ public class Main {
         temp.add(supo2(answers));
         temp.add(supo3(answers));
 
+
         int max = max(temp);
 
-        for (int t : temp) {
-            if (t == max) {
-                answer.add(temp.indexOf(t)+1);
+        for (int i = 0 ; i<temp.size();i++) {
+            if (temp.get(i) == max) {
+                answer.add(i+1);
             }
         }
 
@@ -89,7 +89,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] sol1 = new Main().solution(new int[]{1,2,3,4,5});
-        System.out.println(sol1);
+//        int[] sol1 = new Main().solution(new int[]{1,2,3,4,5});
+        int[] sol2 = new Main().solution(new int[]{1,3,2,4,2});
+//        System.out.println(sol1);
     }
 }
