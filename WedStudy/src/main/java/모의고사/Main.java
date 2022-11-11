@@ -24,7 +24,6 @@ public class Main {
             }
         }
 
-
         int[] as = answer.stream().mapToInt(i -> i).toArray();
 
         return as;

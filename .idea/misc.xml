@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/DFS_BFS" />
+    <file type="web" url="file://$PROJECT_DIR$/ReadyCodingTest" />
     <file type="web" url="file://$PROJECT_DIR$/SatStudy" />
     <file type="web" url="file://$PROJECT_DIR$/WedStudy" />
   </component>
