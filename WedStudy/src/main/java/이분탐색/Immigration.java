@@ -1,28 +1,25 @@
 package 이분탐색;
 
 import java.util.Arrays;
-import java.util.OptionalInt;
+
 
 public class Immigration {
     public long solution(int n, int[] times) {
         long answer = 0;
-
-        int tl = times.length;
-
-        int[] temp = times.clone();
-
-        while(n != 0){
-
-            int min = Arrays.stream(temp).min().getAsInt();
-
-            for (int i = 0; i < tl; i++) {
-                if (temp[i] == min) {
-                    answer += temp[i];
-                    n--;
-                    temp[i] = times[i];
-                } else {
-                    temp[i] -= min;
-                }
+        Arrays.sort(times);
+        long left = 0;
+        long right = (long) n * times[0]; //가장 최악의 경우의(오래걸리는) 시간
+        while (left <= right) {
+            long mid = (left + right) / 2;
+            long sum = 0; // 총 심사한 인원
+            for (int i = 0; i < times.length; i++) { //빨리 심사하는 심사관 순으로 심사처리
+                sum += mid / times[i];
+            }
+            if (sum < n) { // 해야할 인원보다 심사처리 못함 -> 시간 더 필요
+                left = mid + 1;
+            } else { // 해야할 인원보다 심사처리 많이함 -> 시간을 줄여서 더 최고 경우의 시간을 만든다.
+                right = mid - 1;
+                answer = mid;
             }
         }
         return answer;
@@ -35,13 +32,5 @@ public class Immigration {
 }
 
 /**
- * 7, 10
- * 2명
- * 7, 3(=10-7)
- * 3명
- * 4(=7-3), 10
- * 4명
- * .
- * .
- * .
+ * 참조 : https://youngest-programming.tistory.com/499
  */
