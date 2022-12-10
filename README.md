@@ -1,6 +1,6 @@
 # roger
 
-https://school.programmers.co.kr/learn/challenges?tab=algorithm_practice_kit
+https://school.Programmers.co.kr/learn/challenges?tab=algorithm_practice_kit
 
 🏆 알고리즘 스터디 일정(8주 과정)
 

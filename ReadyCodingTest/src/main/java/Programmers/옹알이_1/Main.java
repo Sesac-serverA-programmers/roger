@@ -1,4 +1,4 @@
-package programmers.ongari;
+package Programmers.옹알이_1;
 // 옹알이(1)
 // https://school.programmers.co.kr/learn/courses/30/lessons/120956
 

@@ -1,4 +1,4 @@
-package programmers.다음에올숫자;
+package Programmers.다음에올숫자;
 
 class Solution {
     public int solution(int[] common) {
