@@ -1,9 +1,9 @@
 package programmers.ongari;
+// 옹알이(1)
 // https://school.programmers.co.kr/learn/courses/30/lessons/120956
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -24,7 +24,6 @@ public class Main {
                 answer++;
             }
         }
-
         return answer;
     }
 
