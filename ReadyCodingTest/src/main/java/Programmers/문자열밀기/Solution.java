@@ -1,4 +1,5 @@
 package Programmers.문자열밀기;
+//https://school.programmers.co.kr/learn/courses/30/lessons/120921
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -32,7 +33,6 @@ class Solution {
                 answer++;
             }
         }
-
         return answer;
     }
 
